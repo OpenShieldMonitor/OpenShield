@@ -8,6 +8,7 @@ DEBUG_MODE = True
 # === FUENTES ABIERTAS ===
 NVD_API_URL = "https://services.nvd.nist.gov/rest/json/cves/2.0"
 NVD_API_KEY = os.getenv("NVD_API_KEY", "")  # Mejor cargar desde variables de entorno
+DEFAULT_CVE_RESULTS = 50
 
 CCN_CERT_FEED_URL = "https://www.ccn-cert.cni.es/feeds/avisos.xml"
 EXPLOIT_DB_SEARCH_URL = "https://www.exploit-db.com/search"
@@ -18,7 +19,7 @@ OSQUERY_PATH = "/usr/bin/osqueryi"  # o ruta en Windows: "C:\\Program Files\\osq
 # === ALMACENAMIENTO ===
 USE_NOSQL = True
 MONGODB_URI = "mongodb://localhost:27017"
-MONGODB_DB_NAME = "monitor_seguridad"
+MONGODB_DB_NAME = "mongodb_monitor"
 MONGODB_COLLECTION_SOFTWARE = "software_instalado"
 MONGODB_COLLECTION_VULNS = "vulnerabilidades"
 
