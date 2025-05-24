@@ -36,10 +36,7 @@ def extract_cvss_score(cve):
         pass
     return None
 
-def main():
-    keyword = "OpenSSL"
-    max_results = 10
-
+def main(keyword="OpenSSL", max_results=10):
     print(f"🔍 Buscando CVEs relacionados con: {keyword}")
     cves = search_cves_by_keyword(keyword, max_results=max_results)
 
@@ -48,6 +45,3 @@ def main():
         return
 
     guardar_vulnerabilidades(cves)
-
-if __name__ == "__main__":
-    main()
