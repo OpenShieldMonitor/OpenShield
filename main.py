@@ -1,4 +1,4 @@
-from services.osint_sources import get_nvd_cves
+from services.osint_sources import nvd_get_cves
 from services.data_pipeline import storage_nosql
 
 def mostrar_menu():
@@ -12,7 +12,7 @@ def accion_buscar_cves():
     if not keyword:
         print("❌ No se introdujo palabra clave. Cancelando...")
         return
-    get_nvd_cves.main(keyword=keyword)
+    nvd_get_cves.main(keyword=keyword)
 
 def accion_limpiar_bbdd():
     confirm = input("⚠️  ¿Estás seguro de que quieres eliminar todos los datos? (s/N): ")

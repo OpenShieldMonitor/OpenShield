@@ -5,11 +5,12 @@ PROJECT_NAME = "OpenShield"
 VERSION = "1.0.0"
 DEBUG_MODE = True
 
-# === FUENTES ABIERTAS ===
+# === FUENTES OSINT ===
 NVD_API_URL = "https://services.nvd.nist.gov/rest/json/cves/2.0"
 NVD_API_KEY = os.getenv("NVD_API_KEY", "")  # Mejor cargar desde variables de entorno
 DEFAULT_CVE_RESULTS = 50
 
+# === POSIBLES OSINT ===
 CCN_CERT_FEED_URL = "https://www.ccn-cert.cni.es/feeds/avisos.xml"
 EXPLOIT_DB_SEARCH_URL = "https://www.exploit-db.com/search"
 
