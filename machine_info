@@ -3,6 +3,8 @@ import subprocess
 import platform
 import sys
 
+# 1. Funciones
+
 # Función para poder ejecutar comandos en el sistema
 def ejecutar_comando(comando):
     resultado = subprocess.run(comando, shell=True, capture_output=True, text=True)
@@ -18,7 +20,7 @@ def exportar_a_json(datos, archivo):
         json.dump(datos, f, indent=4)
     print("Exportación completada.\n")
 
-# Obtener nombre y versión del sistema operativo
+# Función para obtener nombre y versión del sistema operativo
 def obtener_os():
     print("Obteniendo información del sistema operativo...")
     so = platform.system()
@@ -28,6 +30,8 @@ def obtener_os():
         "Product_Name": so,
         "Product_Version": version
     }
+
+#2.Recogida de datos de la máquina objetivo
 
 # Listar paquetes instalados dependiendo del sistema operativo detectado
 def listar_paquetes_instalados(so):
@@ -69,22 +73,21 @@ def listar_paquetes_instalados(so):
                 paquetes.append({"Product_Name": nombre, "Product_Version": version})
 
     else:
-        print("Sistema operativo no reconocido para listar paquetes.")
+        print(" Sistema operativo no reconocido para listar paquetes.")
 
-    print(f" {len(paquetes)} paquetes detectados.\n")
+    print(f"{len(paquetes)} paquetes detectados.\n")
     return paquetes
 
-# Export a json
-if __name__ == "__main__":
-    print(" Iniciando monitor de ciberseguridad...\n")
+# 3.Export de la información
+print("Iniciando exportacion de datos...\n")
 
-    so_nombre, so_info = obtener_os()
+so_nombre, so_info = obtener_os()
 
-    datos_unificados = {
-        "OS": so_info,
-        "Installed_Packages": listar_paquetes_instalados(so_nombre)
-    }
+datos_unificados = {
+    "OS": so_info,
+    "Installed_Packages": listar_paquetes_instalados(so_nombre)
+}
 
-    exportar_a_json(datos_unificados, "machine_info.json")
+exportar_a_json(datos_unificados, "machine_info.json")
 
-    print("🏁 Monitor finalizado. Archivo generado: machine_info.json\n")
+print("Recogida de datos completada. Archivo generado: machine_info.json\n")
