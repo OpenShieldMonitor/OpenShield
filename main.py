@@ -1,11 +1,14 @@
 from services.osint_sources import nvd_get_cves
+from services.system_scanner import windows_scan
 from services.data_pipeline import storage_nosql
 
 def mostrar_menu():
     print("\n🛡️  MONITOR DE SEGURIDAD - MENÚ PRINCIPAL")
+    print("0. Salir")
     print("1. Buscar CVEs en NVD y guardar en MongoDB")
     print("2. Limpiar la base de datos (colección: vulnerabilidades)")
-    print("3. Salir")
+    print("3. Analizar sistema y exportar a JSON")
+    
 
 def accion_buscar_cves():
     keyword = input("🔎 Introduce palabra clave para buscar CVEs (ej: OpenSSL, Apache, Chrome): ").strip()
@@ -22,6 +25,9 @@ def accion_limpiar_bbdd():
     else:
         print("❌ Operación cancelada.")
 
+def accion_analizar_sistema():
+    windows_scan.main()
+
 def ejecutar_monitor():
     while True:
         mostrar_menu()
@@ -32,6 +38,8 @@ def ejecutar_monitor():
         elif opcion == "2":
             accion_limpiar_bbdd()
         elif opcion == "3":
+            accion_analizar_sistema()
+        elif opcion == "0":
             print("👋 Cerrando monitor. ¡Hasta pronto!")
             break
         else:
