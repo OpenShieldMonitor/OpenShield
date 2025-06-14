@@ -4,7 +4,7 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
 
 from services.osint_sources.nvd_client import search_cves_by_keyword
-from services.data_pipeline import storage_nosql
+from services.data_pipeline.storage_local import storage
 
 def guardar_vulnerabilidades(cves):
     docs = []
@@ -18,7 +18,8 @@ def guardar_vulnerabilidades(cves):
             "source": "NVD"
         })
     if docs:
-        storage_nosql.insert_documents("vulnerabilidades", docs)
+        storage.delete_all("vulnerabilidades")
+        storage.insert_documents("vulnerabilidades", docs)
         print(f"✅ {len(docs)} CVEs insertados en la base de datos.")
     else:
         print("⚠️ No se insertó nada.")
@@ -45,3 +46,4 @@ def main(keyword="OpenSSL", max_results=10):
         return
 
     guardar_vulnerabilidades(cves)
+

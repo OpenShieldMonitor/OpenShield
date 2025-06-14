@@ -1,0 +1,226 @@
+[
+    {
+        "productName": "Windows",
+        "productVersion": "11"
+    },
+    {
+        "productName": "Microsoft Teams Meeting Add-in for Microsoft Office",
+        "productVersion": "1.25.14205"
+    },
+    {
+        "productName": "Python 3.13.2 Core Interpreter (64-bit)",
+        "productVersion": "3.13.2150.0"
+    },
+    {
+        "productName": "Python 3.13.2 pip Bootstrap (64-bit)",
+        "productVersion": "3.13.2150.0"
+    },
+    {
+        "productName": "Python 3.13.2 Standard Library (64-bit)",
+        "productVersion": "3.13.2150.0"
+    },
+    {
+        "productName": "Python 3.13.2 Executables (64-bit)",
+        "productVersion": "3.13.2150.0"
+    },
+    {
+        "productName": "Python 3.13.2 Development Libraries (64-bit)",
+        "productVersion": "3.13.2150.0"
+    },
+    {
+        "productName": "Python Launcher",
+        "productVersion": "3.13.2150.0"
+    },
+    {
+        "productName": "Python 3.13.2 Test Suite (64-bit)",
+        "productVersion": "3.13.2150.0"
+    },
+    {
+        "productName": "Python 3.13.2 Tcl/Tk Support (64-bit)",
+        "productVersion": "3.13.2150.0"
+    },
+    {
+        "productName": "Python 3.13.2 Documentation (64-bit)",
+        "productVersion": "3.13.2150.0"
+    },
+    {
+        "productName": "Office 16 Click-to-Run Extensibility Component",
+        "productVersion": "16.0.17928.20216"
+    },
+    {
+        "productName": "Office 16 Click-to-Run Licensing Component",
+        "productVersion": "16.0.17928.20538"
+    },
+    {
+        "productName": "Microsoft Intune Management Extension",
+        "productVersion": "1.91.102.0"
+    },
+    {
+        "productName": "Nessus Agent (x64)",
+        "productVersion": "10.8.4.20030"
+    },
+    {
+        "productName": "IBM Personal Communications",
+        "productVersion": "6.0.1"
+    },
+    {
+        "productName": "Microsoft Visual C++ 2005 Redistributable (x64)",
+        "productVersion": "8.0.61000"
+    },
+    {
+        "productName": "Microsoft Visual C++ 2013 x86 Minimum Runtime - 12.0.40664",
+        "productVersion": "12.0.40664"
+    },
+    {
+        "productName": "Oracle VirtualBox 7.1.4",
+        "productVersion": "7.1.4"
+    },
+    {
+        "productName": "GlobalProtect",
+        "productVersion": "6.3.1"
+    },
+    {
+        "productName": "Benchmark Factory 9.0.0 x64",
+        "productVersion": "9.0.0.288"
+    },
+    {
+        "productName": "CrowdStrike Device Control",
+        "productVersion": "7.10.18083.0"
+    },
+    {
+        "productName": "Microsoft Visual C++ 2013 x64 Minimum Runtime - 12.0.40664",
+        "productVersion": "12.0.40664"
+    },
+    {
+        "productName": "Java 8 Update 421 (64-bit)",
+        "productVersion": "8.0.4210.9"
+    },
+    {
+        "productName": "Splunk Enterprise",
+        "productVersion": "9.4.3.0"
+    },
+    {
+        "productName": "Quest SQL Optimizer for Oracle",
+        "productVersion": "10.0.0.2038"
+    },
+    {
+        "productName": "CrowdStrike Sensor Platform",
+        "productVersion": "7.23.19508.0"
+    },
+    {
+        "productName": "Adobe Acrobat (64-bit)",
+        "productVersion": "25.001.20531"
+    },
+    {
+        "productName": "Adobe Refresh Manager",
+        "productVersion": "1.8.0"
+    },
+    {
+        "productName": "myIT actions",
+        "productVersion": "2.3.211"
+    },
+    {
+        "productName": "Windows Subsystem for Linux Update",
+        "productVersion": "5.10.102.1"
+    },
+    {
+        "productName": "Toad for Oracle 2024 R2 (64-bit)",
+        "productVersion": "24.2.275.4664"
+    },
+    {
+        "productName": "Microsoft Visual C++ 2012 x64 Additional Runtime - 11.0.61030",
+        "productVersion": "11.0.61030"
+    },
+    {
+        "productName": "Microsoft Visual C++ 2005 Redistributable (x64)",
+        "productVersion": "8.0.56336"
+    },
+    {
+        "productName": "Code Tester for Oracle 2024 R2 (64-bit)",
+        "productVersion": "24.2.9.4414"
+    },
+    {
+        "productName": "VMware Workstation",
+        "productVersion": "17.6.2"
+    },
+    {
+        "productName": "Node.js",
+        "productVersion": "22.16.0"
+    },
+    {
+        "productName": "Microsoft Visual C++ 2013 x64 Additional Runtime - 12.0.40664",
+        "productVersion": "12.0.40664"
+    },
+    {
+        "productName": "Java(TM) SE Development Kit 11.0.16.1 (64-bit)",
+        "productVersion": "11.0.16.1"
+    },
+    {
+        "productName": "Windows Subsystem for Linux",
+        "productVersion": "2.5.7.0"
+    },
+    {
+        "productName": "Microsoft Visual C++ 2022 X86 Additional Runtime - 14.38.33130",
+        "productVersion": "14.38.33130"
+    },
+    {
+        "productName": "DXC Image Info",
+        "productVersion": "2.1"
+    },
+    {
+        "productName": "Microsoft Visual C++ 2022 X64 Additional Runtime - 14.38.33130",
+        "productVersion": "14.38.33130"
+    },
+    {
+        "productName": "Microsoft Visual C++ 2012 x86 Additional Runtime - 11.0.61030",
+        "productVersion": "11.0.61030"
+    },
+    {
+        "productName": "Microsoft Visual C++ 2012 x64 Minimum Runtime - 11.0.61030",
+        "productVersion": "11.0.61030"
+    },
+    {
+        "productName": "Microsoft Visual C++ 2013 x86 Additional Runtime - 12.0.40664",
+        "productVersion": "12.0.40664"
+    },
+    {
+        "productName": "1E Client x64",
+        "productVersion": "8.1.2"
+    },
+    {
+        "productName": "CrowdStrike Firmware Analysis",
+        "productVersion": "7.14.18456.0"
+    },
+    {
+        "productName": "Microsoft Monitoring Agent",
+        "productVersion": "10.20.18076.0"
+    },
+    {
+        "productName": "Microsoft Visual C++ 2012 x86 Minimum Runtime - 11.0.61030",
+        "productVersion": "11.0.61030"
+    },
+    {
+        "productName": "Microsoft Update Health Tools",
+        "productVersion": "5.72.0.0"
+    },
+    {
+        "productName": "Zscaler",
+        "productVersion": "0.0.6119"
+    },
+    {
+        "productName": "DXC Encryption SmartTool",
+        "productVersion": "1.4.18319.4"
+    },
+    {
+        "productName": "Microsoft Visual C++ 2022 X64 Minimum Runtime - 14.38.33130",
+        "productVersion": "14.38.33130"
+    },
+    {
+        "productName": "Java Auto Updater",
+        "productVersion": "2.8.421.9"
+    },
+    {
+        "productName": "Microsoft Visual C++ 2022 X86 Minimum Runtime - 14.38.33130",
+        "productVersion": "14.38.33130"
+    }
+]
