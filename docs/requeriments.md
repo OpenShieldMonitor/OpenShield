@@ -1,0 +1,10 @@
+python-dotenv>=1.0.0
+requests
+aiohttp
+asyncio
+pymongo
+packaging
+win10toast-click
+pyfiglet
+tinydb
+colorama

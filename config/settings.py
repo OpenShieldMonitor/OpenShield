@@ -9,22 +9,19 @@ DEBUG_MODE = True
 NVD_API_URL = "https://services.nvd.nist.gov/rest/json/cves/2.0"
 NVD_API_KEY = os.getenv("NVD_API_KEY", "")  # Mejor cargar desde variables de entorno
 DEFAULT_CVE_RESULTS = 50
-
-# === POSIBLES OSINT ===
-CCN_CERT_FEED_URL = "https://www.ccn-cert.cni.es/feeds/avisos.xml"
-EXPLOIT_DB_SEARCH_URL = "https://www.exploit-db.com/search"
-
-# === SISTEMA LOCAL ===
-OSQUERY_PATH = "/usr/bin/osqueryi"  # o ruta en Windows: "C:\\Program Files\\osquery\\osqueryi.exe"
+NVD_REQUEST_DELAY = 6
 
 # === ALMACENAMIENTO ===
+STORAGE_MODE = "local"  # local with JSONs
+#STORAGE_MODE = "mongo"  # MongoDB with Docker
 USE_NOSQL = True
 MONGODB_URI = "mongodb://localhost:27017"
-MONGODB_DB_NAME = "mongodb_monitor"
+MONGODB_DB_NAME = "openshield"
 MONGODB_COLLECTION_SOFTWARE = "software_instalado"
 MONGODB_COLLECTION_VULNS = "vulnerabilidades"
+DATA_PATH = "data"  # Carpeta donde se almacenan los JSON
 
-LOCAL_STORAGE_PATH = "./data/"
+
 
 # === ANÁLISIS ===
 CVSS_SEVERITY_THRESHOLDS = {
@@ -35,14 +32,5 @@ CVSS_SEVERITY_THRESHOLDS = {
 }
 
 # === ALERTAS ===
-ENABLE_TELEGRAM_ALERTS = True
-TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "")
-TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "")
-
-ENABLE_WINDOWS_POPUPS = True
 ALERT_LEVEL_TO_NOTIFY = ["CRITICAL", "HIGH"]  # Solo notificar estos niveles
-
-# === OTROS ===
-LOG_PATH = "./logs/monitor.log"
-CACHE_EXPIRATION_HOURS = 24  # Tiempo para reutilizar resultados de fuentes abiertas
 

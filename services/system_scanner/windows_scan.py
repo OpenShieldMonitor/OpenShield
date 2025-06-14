@@ -2,7 +2,7 @@ import json
 import subprocess
 import platform
 import sys
-from services.data_pipeline import storage_nosql
+from services.data_pipeline.storage_local import storage
 
 # 1. Funciones
 
@@ -23,7 +23,6 @@ def exportar_a_json(datos, archivo):
 
 # Función para obtener nombre y versión del sistema operativo
 def obtener_os():
-    print("Obteniendo información del sistema operativo...")
     so = platform.system()
     version = platform.release()
     print(f"Sistema operativo detectado: {so} {version}\n")
@@ -36,7 +35,9 @@ def obtener_os():
 
 # Listar paquetes instalados dependiendo del sistema operativo detectado
 def listar_paquetes_instalados(so):
-    print("Listando paquetes instalados...")
+    print("┏━━━━━━━━━━━━━━━━━━━━━━━━━━┓")
+    print("┃    Escaneando sistema    ┃")
+    print("┗━━━━━━━━━━━━━━━━━━━━━━━━━━┛")
     paquetes = []
 
     if so == "Linux":
@@ -72,16 +73,17 @@ def listar_paquetes_instalados(so):
             if len(partes) == 2:
                 nombre, version = partes
                 paquetes.append({"Product_Name": nombre, "Product_Version": version})
+                print(f"┣━ {nombre} | versión: {version}")
 
     else:
-        print(" Sistema operativo no reconocido para listar paquetes.")
+        print(" ⚠️ Sistema operativo no reconocido ⚠️")
 
-    print(f"{len(paquetes)} paquetes detectados.\n")
+    print(f"\n  📦 {len(paquetes)} paquetes detectados 📦\n")
     return paquetes
 
 # 3.Export de la información
 def main():
-    print("Iniciando exportacion de datos...\n")
+    print("\n   🔍 Iniciando escaneo del sistema 🔍\n")
     so_nombre, so_info = obtener_os()
 
     datos_unificados = {
@@ -89,8 +91,6 @@ def main():
         "Installed_Packages": listar_paquetes_instalados(so_nombre)
     }
 
-    exportar_a_json(datos_unificados, "machine_info.json")
-    print("Recogida de datos completada. Archivo generado: machine_info.json\n")
     guardar_scan(datos_unificados)
 
 def guardar_scan(scan):
@@ -98,8 +98,8 @@ def guardar_scan(scan):
     installedPackages = scan.get("Installed_Packages")
     os = scan.get("OS")
     docs.append({
-        "productName": sw.get("Product_Name"),
-        "productVersion": sw.get("Product_Version")
+        "productName": os.get("Product_Name"),
+        "productVersion": os.get("Product_Version")
     })
     for sw in installedPackages:
         
@@ -108,7 +108,10 @@ def guardar_scan(scan):
             "productVersion": sw.get("Product_Version")
         })
     if docs:
-        storage_nosql.insert_documents("software", docs)
-        print(f"✅ {len(docs)} software insertado en la base de datos.")
+        storage.delete_all("software")
+        storage.insert_documents("software", docs)
+        print("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓")
+        print("┃  Base de datos actualizada con el software detectado   ┃")
+        print("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛")
     else:
-        print("⚠️ No se insertó nada.")
+        print("⚠️ No se insertó nada ⚠️")
