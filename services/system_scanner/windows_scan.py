@@ -3,6 +3,7 @@ import subprocess
 import platform
 import sys
 from services.data_pipeline.storage_local import storage
+from core.spinner import Spinner 
 
 # 1. Funciones
 
@@ -35,11 +36,12 @@ def obtener_os():
 
 # Listar paquetes instalados dependiendo del sistema operativo detectado
 def listar_paquetes_instalados(so):
-    print("┏━━━━━━━━━━━━━━━━━━━━━━━━━━┓")
-    print("┃    Escaneando sistema    ┃")
-    print("┗━━━━━━━━━━━━━━━━━━━━━━━━━━┛")
+    print("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓")
+    print("┃    Inicio módulo análisis del sistema    ┃")
+    print("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n")
+    spinner = Spinner("Escaneando software instalado...")
+    spinner.start()
     paquetes = []
-
     if so == "Linux":
         salida = ejecutar_comando("apt list --installed 2>/dev/null | tail -n +2")
         for linea in salida.split('\n'):
@@ -65,7 +67,10 @@ def listar_paquetes_instalados(so):
                 paquetes.append({"Product_Name": nombre, "Product_Version": version})
 
     elif so == "Windows":
-        salida = ejecutar_comando('powershell "Get-WmiObject -Class Win32_Product | Select-Object Name, Version"')
+        try:
+            salida = ejecutar_comando('powershell "Get-WmiObject -Class Win32_Product | Select-Object Name, Version"')
+        finally:
+            spinner.stop()
         for linea in salida.split('\n'):
             if not linea.strip() or 'Name' in linea or '---' in linea:
                 continue

@@ -1,4 +1,7 @@
 import re
+import pyfiglet
+from colorama import Fore, Style
+
 
 def normalizar_nombre_producto(nombre):
     nombre = nombre.lower()
@@ -19,3 +22,8 @@ def normalizar_nombre_producto(nombre):
     nombre_filtrado = " ".join([palabra for palabra in nombre.split() if palabra not in palabras_excluir])
 
     return nombre_filtrado.strip()
+
+def mostrar_banner():
+    banner = pyfiglet.figlet_format("OpenShield", font="slant")
+    print(Fore.BLUE + banner)
+    print(Fore.CYAN + "Automated OSINT-Based Vulnerability Tracker\n")

@@ -15,7 +15,10 @@ def evaluar_vulnerabilidades_y_notificar():
         print("✅ No hay vulnerabilidades críticas o altas.")
         return
 
-    print(f"⚠️ Se han detectado {len(relevantes)} vulnerabilidades relevantes.\n")
+    print("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓")
+    print("┃    Iniciando módulo de alertas     ┃")
+    print("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n")
+    print(f"⚠️ Se han detectado {len(relevantes)} vulnerabilidades alto riesgo [CVSSv3 > 7.0].\n")
 
     for v in relevantes:
         producto = v.get("producto_detectado", "Desconocido")
