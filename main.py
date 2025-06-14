@@ -1,5 +1,4 @@
 import os
-import pyfiglet
 import asyncio
 from config import settings
 from services.osint_sources import nvd_get_cves
@@ -8,15 +7,10 @@ from services.system_scanner import windows_scan
 from services.data_pipeline.storage_local import storage
 from services.alerting.eval_vulnerabilities import evaluar_vulnerabilidades_y_notificar
 from colorama import Fore, Style
-
-def mostrar_banner():
-    banner = pyfiglet.figlet_format("OpenShield", font="slant")
-    print(Fore.BLUE + banner)
-    print(Fore.CYAN + "        Automated OSINT-Based Vulnerability Tracker\n")
-    
+from core import utils
 
 def mostrar_menu():
-    mostrar_banner()
+    utils.mostrar_banner()
     print("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓")
     print("┃     0. Salir                                               ┃")
     print("┃     1. Buscar CVEs en NVD y guardar                        ┃")

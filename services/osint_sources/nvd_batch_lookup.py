@@ -133,7 +133,7 @@ async def buscar_cves_para_software_instalado():
         print("\n┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓")
         print("┃  Base de datos actualizada con CVEs detectados   ┃")
         print("┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛")
-        print(f"┃ Insertados {len(cve_docs)} CVEs relevantes en la colección 'vulnerabilidades'")
+        print(f"┣━ Insertados {len(cve_docs)} CVEs relevantes en la colección 'vulnerabilidades'")
     else:
         print("⚠️ No se encontraron CVEs que afecten a las versiones detectadas")
 

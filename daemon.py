@@ -1,10 +1,13 @@
+import os
 import asyncio
 import logging
 from datetime import datetime
-
 from services.osint_sources import nvd_batch_lookup
 from services.system_scanner import windows_scan
 from services.alerting.eval_vulnerabilities import evaluar_vulnerabilidades_y_notificar
+from core import utils
+from colorama import Fore, Style
+from config import settings
 
 # 📌 Configuración del logger
 log_filename = f"logs/daemon_{datetime.now().strftime('%Y%m%d')}.log"
@@ -16,6 +19,14 @@ logging.basicConfig(
 )
 
 def daemon():
+    clear = lambda: os.system('cls')
+    clear()
+    utils.mostrar_banner()
+    print("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓")
+    print("┃     Modo ejecución automatizada en segundo plano.          ┃")
+    print("┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛")
+    storage_str = f"Storage Mode: {Fore.RED}{settings.STORAGE_MODE}"
+    print(f"┃ {storage_str}{Fore.CYAN}┃{Style.RESET_ALL}")
     logging.info("🛡️  Iniciando ejecución automática del monitor...")
 
     try:
