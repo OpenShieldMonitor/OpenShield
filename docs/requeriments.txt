@@ -1,0 +1,8 @@
+aiohttp>=3.8.0           # Cliente HTTP asíncrono para peticiones a NVD
+colorama>=0.4.6          # Colores en terminal (menús, alertas)
+packaging>=23.0          # Comparación robusta de versiones
+pyfiglet>=0.8            # Banners de texto decorativo en terminal
+pymongo>=4.3.3           # Conector de MongoDB
+python-dotenv>=1.0.0     # Carga de variables de entorno desde .env
+requests>=2.31.0         # Cliente HTTP síncrono
+win10toast-click>=0.0.3  # Notificaciones interactivas en Windows
