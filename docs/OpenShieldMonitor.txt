@@ -1,0 +1,22 @@
+title **OpenShield Monitor**\nAutomated OSINT-Based Vulnerability Tracker
+
+CONTROLADOR->SO ESCANER :Petición de análisis del sistema operativo \ny software instalado.
+CONTROLADOR<--SO ESCANER :Respuesta análisis del sistema \noperativo y software instalado.
+CONTROLADOR->BBDD :Almacenamos el software instalado y su versión.
+
+CONTROLADOR->OSINT :Petición a fuentes OSINT y software instalado \npara recuperar las vulnerabilidades activas (hasKev).
+OSINT->BBDD :Recupera el software \ninstalado para realizar peticiones\n asincronas a NVD.
+OSINT->NVD :(ASYNC) Petición http para recuperar\n vulnerabilidades activas - SW(1)
+OSINT<--NVD :Respuesta: 200 OK [CVEs]
+OSINT->NVD :(ASYNC) Petición http para recuperar\n vulnerabilidades activas - SW(n)
+OSINT<--NVD :Respuesta: 200 OK [CVEs]
+
+OSINT->VALIDADOR :Ejecuta la funcionalidad de validación. \nRealiza un análisis de las vulnerabilidades \nencontradas para validar que existe una \nafectación sobre la versión instalada
+note over OSINT,VALIDADOR:Si se detectan versiones afectadas: **Ejecución servicio de alertas**
+
+OSINT->ALERTAS :Lanza servicio de alertas.\nMandamos las vulnerabilidades \nque superen CVSSv3 > 7.0
+
+CONTROLADOR<--ALERTAS :Devuelve el control al módulo principal
+note over OSINT,VALIDADOR:Si **no** se detectan versiones afectadas
+
+CONTROLADOR<--OSINT :Devuelve el control al módulo principal
